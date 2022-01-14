@@ -1,0 +1,174 @@
+Create Database Engineer_College       --- to create database name
+
+------Students--------
+
+IF OBJECT_ID('Engineer_College...Students') IS NOT NULL
+DROP TABLE Students
+
+CREATE TABLE Students(
+StudentID int NOT NULL PRIMARY KEY,
+Last_Name Varchar(50),
+First_Name Varchar(50),
+Department_Name Varchar(50),
+Course_Name Varchar(255),
+School_fees Varchar(50)
+)
+
+----------Courses-------------
+IF OBJECT_ID('Engineer_College...Courses') IS NOT NULL
+DROP TABLE Courses
+
+CREATE TABLE Courses(
+DepartmentID int NOT NULL,
+Department_Name Varchar(50),
+Course_Name Varchar(255),
+Professor_Name Varchar(50)
+)
+
+---------Department-----------
+
+IF OBJECT_ID('Engineer_College...Department') IS NOT NULL
+DROP TABLE Department
+
+CREATE TABLE Department(
+DepartmentID int NOT NULL PRIMARY KEY,
+Department_Name Varchar(50),
+Department_Professor_Name Varchar(50)
+)
+
+----------Professors-----------
+
+IF OBJECT_ID('Engineer_College...Professors') IS NOT NULL
+DROP TABLE Professors
+
+CREATE TABLE Professors(
+Professor_ID int NOT NULL PRIMARY KEY,
+Professor_Name Varchar(50),
+Department_ID INT,
+Course_Name Varchar(255),
+Salary Money
+)
+
+---------Payment--------------
+
+IF OBJECT_ID('Engineer_College...Payment') IS NOT NULL
+DROP TABLE Payment
+
+CREATE TABLE Payment(
+ID int NOT NULL PRIMARY KEY,
+Occupation Varchar(50),
+Full_Name Varchar(50),
+Salary_or_School_Fees_Paid_or_Unpaid Varchar(50)
+)
+
+-------To insert values into Students-----------
+
+Insert into Students values (101, 'Hunt', 'John', 'Engineer', 'Introduction to Engineer, Engineer_1, Engineer_2, Engineer_3, Engineer_4', 'Paid'),
+(102, 'Parker',  'Sarah', 'Engineer', 'Introduction to Engineer, Engineer_1, Engineer_2, Engineer_3, Engineer_4', 'Paid'),
+(103, 'Adams',  'Jessica', 'Engineer', 'Introduction to Engineer, Engineer_1, Engineer_2, Engineer_3, Engineer_4', 'Paid'),
+(104, 'Jones',  'Jack', 'Engineer', 'Introduction to Engineer, Engineer_1, Engineer_2, Engineer_3, Engineer_4','Unpaid'),
+(105, 'Fuller',  'Stacey', 'Mathematics', 'Introduction to Mathematics, Mathematcics_1, Mathematics_2, Mathematics_3, Mathematics_4', 'Paid'),
+(106, 'Smith',  'Wendy', 'Mathematics', 'Introduction to Mathematics, Mathematcics_1, Mathematics_2, Mathematics_3, Mathematics_4','Paid'),
+(107, 'Walker',  'Amanda', 'Mathematics', 'Introduction to Mathematics, Mathematcics_1, Mathematics_2, Mathematics_3, Mathematics_4', 'Unpaid'),
+(108, 'Robert',  'Jane', 'Mathematics', 'Introduction to Mathematics, Mathematcics_1, Mathematics_2, Mathematics_3, Mathematics_4', 'Unpaid'),
+(109, 'Mitchel',  'Kelly', 'Science', 'Introduction to Science, Science_1, Science_2, Science_3, Science_4', 'Paid'),
+(110, 'Cooper',  'Jackson', 'Science', 'Introduction to Science, Science_1, Science_2, Science_3, Science_4', 'Unpaid'),
+(111, 'Campbell',  'Peter', 'Science', 'Introduction to Science, Science_1, Science_2, Science_3, Science_4', 'Paid'),
+(112, 'Johnson',  'Jimmy', 'Science', 'Introduction to Science, Science_1, Science_2, Science_3, Science_4', 'Unpaid'),
+(113, 'Potter',  'Bradley', 'Information Technology', 'Introduction to Information Technology, Information Technology_1, Information Technology_2, Information Technology_3, Information Technology_4', 'Paid'),
+(114, 'Schmidt',  'Ronald', 'Information Technology', 'Introduction to Information Technology, Information Technology_1, Information Technology_2, Information Technology_3, Information Technology_4', 'Unpaid'),
+(115, 'Spellman',  'Carrie', 'Information Technology', 'Introduction to Information Technology, Information Technology_1, Information Technology_2, Information Technology_3, Information Technology_4', 'Paid'),
+(116, 'Andrews',  'Julie', 'Information Technology', 'Introduction to Information Technology, Information Technology_1, Information Technology_2, Information Technology_3, Information Technology_4', 'Paid'),
+(117, 'Williams',  'Brittany', 'English', 'Introduction to English, English_1, English_2,English_3, English_4', 'Unpaid'),
+(118, 'Roberts',  'Emily', 'English', 'Introduction to English, English_1, English_2,English_3, English_4', 'Paid'),
+(119, 'Peterson',  'Anna', 'English', 'Introduction to English, English_1, English_2,English_3, English_4', 'Unpaid'),
+(120, 'Darlington',  'Rose', 'English', 'Introduction to English, English_1, English_2,English_3, English_4', 'Paid')
+
+---select * from Students
+---drop table Students 
+
+-------Insert values into Courses-------
+
+Insert into Courses values (123, 'Mathematics', 'Introduction to Mathematics','Professor Brandon Edwin '),
+(123, 'Mathematics', 'Mathematics_1','Professor Brandon Edwin '),
+(123, 'Mathematics', 'Mathematics_2','Professor Brandon Edwin '),
+(123, 'Mathematics', 'Mathematics_3','Professor Brandon Edwin '),
+(123, 'Mathematics', 'Mathematics_4','Professor Brandon Edwin '),
+(456, 'English', 'Introduction to English', 'Professor Rachel Montgomery'),
+(456, 'English', 'English_1','Professor Rachel Montgomery'),
+(456, 'English', 'English_2','Professor Rachel Montgomery'),
+(456, 'English', 'English_3','Professor Rachel Montgomery'),
+(456, 'English', 'English_4','Professor Rachel Montgomery'),
+(789, 'Information Technology', 'Introduction to Information Technology','Professor Robert Ludwig'),
+(789, 'Information Technology', 'Information Technology_1','Professor Robert Ludwig'),
+(789, 'Information Technology', 'Information Technology_2','Professor Robert Ludwig'),
+(789, 'Information Technology', 'Information Technology_3','Professor Robert Ludwig'),
+(789, 'Information Technology', 'Information Technology_4','Professor Robert Ludwig'),
+(1011, 'Engineer', 'Introduction to Engineer','Professor William Patterson'),
+(1011, 'Engineer', 'Engineer_1','Professor William Patterson'),
+(1011, 'Engineer', 'Engineer_2','Professor William Patterson'),
+(1011, 'Engineer', 'Engineer_3','Professor William Patterson'),
+(1011, 'Engineer', 'Engineer_4','Professor William Patterson'),
+(1213, 'Science', 'Introduction to Science','Professor Monica Pitt'),
+(1213, 'Science', 'Science_1','Professor Monica Pitt'),
+(1213, 'Science', 'Science_2','Professor Monica Pitt'),
+(1213, 'Science', 'Science_3','Professor Monica Pitt'),
+(1213, 'Science', 'Science_4','Professor Monica Pitt')
+
+---select * from Courses
+---drop table courses
+
+-------Insert values into Department-------
+
+Insert into Department values (123, 'Mathematics','Professor Brandon Edwin'),
+(456, 'English', 'Professor Rachel Montgomery'),
+(789, 'Information Technology','Professor Robert Ludwig'),
+(1011, 'Engineer', 'Professor William Patterson'),
+(1213, 'Science','Professor Monica Pitt')
+
+--select * from Department
+--drop table Department 
+
+-------Insert values into Professors-------
+
+Insert into Professors values (214, 'Professor Rachel Montgomery', 456,'Introduction to English, English_1, English_2, English_3, English_4', 45000),
+(312, 'Professor Brandon Edwin', 123,'Introduction to Mathematics, Mathematics_1, Mathematics_2, Mathematics_3, Mathematics_4', 50000),
+(147, 'Professor Monica Pitt', 1213,'Introduction to Science, Science_1, Science_2, Science_3, Science_4', 65000),
+(516, 'Professor Robert Ludwig', 789,'Introduction to Information Technology, Information Technology_1, Information Technology_2, Information Technology_3, Information Technology_4', 60000),
+(809, 'Professor William Patterson', 1011,'Introduction to Engineer, Engineer_1, Engineer_2, Engineer_3, Engineer_4', 63000)
+
+--select * from Professors
+---drop table Professors
+
+-------Insert values into Payment-------
+
+Insert into Payment values (214, 'Professor', 'Rachel Montgomery', 'Paid'),
+(312, 'Professor', 'Brandon Edwin', 'Paid'),
+(147, 'Professor', 'Monica Pitt', 'Paid'),
+(516, 'Professor', 'Robert Ludwig', 'Paid'),
+(809, 'Professor', 'William Patterson', 'Paid'),
+(101,  'Student','John Hunt', 'Paid'),
+(102, 'Student','Sarah Parker','Paid'),
+(103, 'Student',  'Jessica Adams', 'Paid'),
+(104, 'Student',  'Jack Jones', 'Unpaid'),
+(105, 'Student',  'Stacey Fuller', 'Paid'),
+(106, 'Student',  'Wendy Smith', 'Paid'),
+(107, 'Student',  'Amanda Walker', 'Unpaid'),
+(108, 'Student',  'Jane Robert', 'Unpaid'),
+(109, 'Student',  'Kelly Mitchel', 'Paid'),
+(110, 'Student',  'Jackson Cooper', 'Unpaid'),
+(111, 'Student',  'Peter Campbell', 'Paid'),
+(112, 'Student',  'Jimmy Johnson', 'Unpaid'),
+(113, 'Student',  'Bradley Potter', 'Paid'),
+(114, 'Student',  'Ronald Schmidt', 'Unpaid'),
+(115, 'Student',  'Carrie Spellman','Paid'),
+(116, 'Student',  'Julie Andrews', 'Paid'),
+(117, 'Student',  'Brittany Williams', 'Unpaid'),
+(118, 'Student',  'Emily Roberts', 'Paid'),
+(119, 'Student',  'Anna Peterson', 'Unpaid'),
+(120, 'Student',  'Rose Darlington', 'Paid')
+
+--select * from Payment
+---drop table Payment
+
+                    
